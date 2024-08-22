@@ -30,3 +30,4 @@ The following files were used in the creation of this program:
 ### Credits
 The data for this project was provided by the bike share group [Motivate](https://motivateco.com/)
 
+This project was completed in the [Udacity](https://www.udacity.com/) Programming for Data Science with Python Course
