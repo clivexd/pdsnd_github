@@ -28,5 +28,5 @@ The following files were used in the creation of this program:
 - new_york_city.csv
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+The data for this project was provided by the bike share group [Motivate](https://motivateco.com/)
 
