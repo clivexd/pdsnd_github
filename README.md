@@ -21,8 +21,11 @@ The Chicago and New York City datasets also include the following two columns:
 - Gender
 - Birth Year
 
-### Files used
-Include the files used
+## Files used
+The following files were used in the creation of this program:
+- Chicago.csv
+- Washington.csv
+- new_york_city.csv
 
 ### Credits
 It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
