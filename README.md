@@ -8,7 +8,7 @@
 ## Description
 Clive's bikeshare project lets the user analyse the rental data from the share bikes located in Chicago, New York City and Washington. 
 
-The dataset currently only includes data from the first six months of 2017. All three datasets include the following columns:
+The dataset currently only includes select data from the first six months of 2017. All three datasets include the following columns:
 
 - Start Time
 - End Time
