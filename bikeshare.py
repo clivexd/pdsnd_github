@@ -9,6 +9,34 @@ CITY_DATA = { 'chicago': 'chicago.csv',
               'washington': 'washington.csv',
               'wa': 'washington.csv'}
 
+# Input refactored to a modular input approach
+def get_city():
+    while True:
+        city = input("Please enter a city you would like to explore - chicago (ch), new_york_city (nyc) washington (wa):\n").lower()
+        if city in CITY_DATA.keys():
+            return city
+        else:
+            print("Uh Oh! that doesn\'t look right!")
+
+def get_month():
+    months = ["jan", "feb", "mar", "apr", "may", "jun", "all"]
+    while True:
+        month = input("Please enter a month from January to June (jan, feb, mar, apr, may, jun or all):\n").lower()
+        if month in months:
+            return month
+        else:
+            print("Uh Oh! that doesn\'t look right!")
+
+def get_day():
+    days = ["mon", "tue", "wed", "thu", "fri","sat", "sun", "all"]
+    while True:
+        day = input("Please enter a day of the week (mon, tue, wed, thu, fri, sat, sun or all):\n").lower()
+        if day in days:
+            return day
+        else:
+            print("Uh Oh! that doesn\'t look right!")
+
+
 def get_filters():
     """
     Asks user to specify a city, month, and day to analyze.
@@ -19,37 +47,13 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data!')
-    # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
-    while True:
-        city = input("Please enter a city you would like to explore - chicago (ch), new_york_city (nyc) washington (wa):\n").lower()
-        if city in CITY_DATA.keys():
-            break
-        else:
-            print("Uh Oh! that doesn\'t look right!")
-
-    # get user input for month (all, january, february, ... , june)
-    months = ["jan", "feb", "mar", "apr", "may", "jun", "all"]
-    while True:
-        month = input("Please enter a month from January to June (jan, feb, mar, apr, may, jun or all):\n").lower()
-        if month in months:
-            break
-        else:
-            print("Uh Oh! that doesn\'t look right!")
-
-    # get user input for day of week (all, monday, tuesday, ... sunday)
-    days = ["mon", "tue", "wed", "thu", "fri","sat", "sun", "all"]
-    while True:
-        day = input("Please enter a day of th week (mon, tue, wed, thu, fri, sat, sun or all):\n").lower()
-        if day in days:
-            break
-        else:
-            print("Uh Oh! that doesn\'t look right!")
-
+    city = get_city()
+    month = get_month()
+    day = get_day()
     print('-'*40)
     return city, month, day
 
-
-def load_data(city, month, day):
+ def load_data(city, month, day):
     """
     Loads data for the specified city and filters by month and day if applicable.
 
@@ -129,22 +133,19 @@ def station_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-
+# trip duration stats refactored to make the code more concise 
 def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
 
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
 
-    # display total travel time
+    # display total and mean travel time
     total_trip_duration = df['Trip Duration'].sum()
-    print('Total travel time is', total_trip_duration)
-
-    # display mean travel time
     mean_travel_time = df['Trip Duration'].mean()
-    print('Mean travel time is', mean_travel_time)
+    print(f'Total travel time is {total_trip_duration}\nMean travel time is {mean_travel_time}')
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print(f"\nThis took {time.time() - start_time} seconds.")
     print('-'*40)
 
 
